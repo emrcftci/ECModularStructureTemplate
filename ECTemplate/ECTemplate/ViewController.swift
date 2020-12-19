@@ -2,8 +2,6 @@
 //  ViewController.swift
 //  ECTemplate
 //
-//  Created by Emre Çiftçi on 19.12.2020.
-//
 
 import UIKit
 
