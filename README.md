@@ -12,7 +12,7 @@ $ ./rename.sh "MyNewProject"
 
 ## Modular Structure
 
-<img src="docs/images/structure"/>
+<img src="docs/images/structure.png"/>
 
 # Preview :star:
 
