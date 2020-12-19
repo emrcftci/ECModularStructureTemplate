@@ -12,28 +12,28 @@ else
   echo "new name is -> $NEW_PROJECT_NAME"
 fi
 
-WORKSPACEDATA_DIR="ECTemplate.xcworkspace/contents.xcworkspacedata"
-TMP_WORKSPACEDATA_DIR="ECTemplate.xcworkspace/tmp_contents.xcworkspacedata"
-PBXPROJ_DIR="ECTemplate/ECTemplate.xcodeproj/project.pbxproj"
-TMP_PBXPROJ_DIR="ECTemplate/ECTemplate.xcodeproj/tmp_project.pbxproj"
-UPDATED_WORKSPACEDATA_DIR="$NEW_PROJECT_NAME.xcworkspace/contents.xcworkspacedata"
-UPDATED_TMP_WORKSPACEDATA_DIR="$NEW_PROJECT_NAME.xcworkspace/tmp_contents.xcworkspacedata"
+WORKSPACEDATA_DIR="Template/ECTemplate.xcworkspace/contents.xcworkspacedata"
+TMP_WORKSPACEDATA_DIR="Template/ECTemplate.xcworkspace/tmp_contents.xcworkspacedata"
+PBXPROJ_DIR="Template/ECTemplate/ECTemplate.xcodeproj/project.pbxproj"
+TMP_PBXPROJ_DIR="Template/ECTemplate/ECTemplate.xcodeproj/tmp_project.pbxproj"
+UPDATED_WORKSPACEDATA_DIR="Template/$NEW_PROJECT_NAME.xcworkspace/contents.xcworkspacedata"
+UPDATED_TMP_WORKSPACEDATA_DIR="Template/$NEW_PROJECT_NAME.xcworkspace/tmp_contents.xcworkspacedata"
 TEMPLATE_BUNDLE_ID="ectemplate"
 
-COMMON_PBXPROJ_DIR="Common/Common.xcodeproj/project.pbxproj"
-TMP_COMMON_PBXPROJ_DIR="Common/Common.xcodeproj/tmp_project.pbxproj"
-NETWORKING_PBXPROJ_DIR="Networking/Networking.xcodeproj/project.pbxproj"
-TMP_NETWORKING_PBXPROJ_DIR="Networking/Networking.xcodeproj/tmp_project.pbxproj"
-UICOMP_PBXPROJ_DIR="UIComp/UIComp.xcodeproj/project.pbxproj"
-TMP_UICOMP_PBXPROJ_DIR="UIComp/UIComp.xcodeproj/tmp_project.pbxproj"
+COMMON_PBXPROJ_DIR="Template/Common/Common.xcodeproj/project.pbxproj"
+TMP_COMMON_PBXPROJ_DIR="Template/Common/Common.xcodeproj/tmp_project.pbxproj"
+NETWORKING_PBXPROJ_DIR="Template/Networking/Networking.xcodeproj/project.pbxproj"
+TMP_NETWORKING_PBXPROJ_DIR="Template/Networking/Networking.xcodeproj/tmp_project.pbxproj"
+UICOMP_PBXPROJ_DIR="Template/UIComp/UIComp.xcodeproj/project.pbxproj"
+TMP_UICOMP_PBXPROJ_DIR="Template/UIComp/UIComp.xcodeproj/tmp_project.pbxproj"
 
 TEMPLATE_TAG="ECTemplate"
-APP_DELEGATE_DIR="$NEW_PROJECT_NAME/$NEW_PROJECT_NAME/AppDelegate.swift"
-TMP_APP_DELEGATE_DIR="$NEW_PROJECT_NAME/$NEW_PROJECT_NAME/tmp_AppDelegate.swift"
-VIEW_CONTROLLER_DIR="$NEW_PROJECT_NAME/$NEW_PROJECT_NAME/ViewController.swift"
-TMP_VIEW_CONTROLLER_DIR="$NEW_PROJECT_NAME/$NEW_PROJECT_NAME/tmp_ViewController.swift"
+APP_DELEGATE_DIR="Template/$NEW_PROJECT_NAME/$NEW_PROJECT_NAME/AppDelegate.swift"
+TMP_APP_DELEGATE_DIR="Template/$NEW_PROJECT_NAME/$NEW_PROJECT_NAME/tmp_AppDelegate.swift"
+VIEW_CONTROLLER_DIR="Template/$NEW_PROJECT_NAME/$NEW_PROJECT_NAME/ViewController.swift"
+TMP_VIEW_CONTROLLER_DIR="Template/$NEW_PROJECT_NAME/$NEW_PROJECT_NAME/tmp_ViewController.swift"
 
-cd ..
+cd ../..
 # Firstly, should change the project's name & necessary fields in .pbxproj
 sed "s/ECTemplate.xcodeproj/$NEW_PROJECT_NAME.xcodeproj/g" $WORKSPACEDATA_DIR > $TMP_WORKSPACEDATA_DIR && mv $TMP_WORKSPACEDATA_DIR $WORKSPACEDATA_DIR
 sed "s/ECTemplate/$NEW_PROJECT_NAME/g" $PBXPROJ_DIR > $TMP_PBXPROJ_DIR && mv $TMP_PBXPROJ_DIR $PBXPROJ_DIR
@@ -50,10 +50,10 @@ function rename_folder {
   rm -rf $1;
 }
 
-rename_folder "ECTemplate" "$NEW_PROJECT_NAME"
-rename_folder "$NEW_PROJECT_NAME/ECTemplate.xcodeproj" "$NEW_PROJECT_NAME/$NEW_PROJECT_NAME.xcodeproj"
-rename_folder "$NEW_PROJECT_NAME/ECTemplate" "$NEW_PROJECT_NAME/$NEW_PROJECT_NAME"
-rename_folder "ECTemplate.xcworkspace" "$NEW_PROJECT_NAME.xcworkspace"
+rename_folder "Template/ECTemplate" "Template/$NEW_PROJECT_NAME"
+rename_folder "Template/$NEW_PROJECT_NAME/ECTemplate.xcodeproj" "Template/$NEW_PROJECT_NAME/$NEW_PROJECT_NAME.xcodeproj"
+rename_folder "Template/$NEW_PROJECT_NAME/ECTemplate" "Template/$NEW_PROJECT_NAME/$NEW_PROJECT_NAME"
+rename_folder "Template/ECTemplate.xcworkspace" "Template/$NEW_PROJECT_NAME.xcworkspace"
 
 # Change redundant path in .workspacedata
 sed "s/ECTemplate/$NEW_PROJECT_NAME/g" $UPDATED_WORKSPACEDATA_DIR > $UPDATED_TMP_WORKSPACEDATA_DIR && mv $UPDATED_TMP_WORKSPACEDATA_DIR $UPDATED_WORKSPACEDATA_DIR
