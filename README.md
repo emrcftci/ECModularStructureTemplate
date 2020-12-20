@@ -9,7 +9,7 @@ $ cd docs/scripts
 $ chmod +x ./rename.sh
 $ ./rename.sh "MyNewProject"
 ```
- and you're good to go.
+ and you're good to go. Ready-to-go structured Xcode project in `Template` folder.
 
 ## Modular Structure
 
