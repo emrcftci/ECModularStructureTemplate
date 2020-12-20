@@ -4,7 +4,8 @@ a horrible ready-to-go modular structure template
 ## Setup
 
 ```bash
-$ cd root/directory/docs/scripts
+$ git clone https://github.com/emrcftci/ECModularStructureTemplate.git
+$ cd docs/scripts
 $ chmod +x ./rename.sh
 $ ./rename.sh "MyNewProject"
 ```
